@@ -1,19 +1,287 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coal City Delights | Enugu</title>
+  <style>
+    :root {
+      --primary: #1b4332;
+      --accent: #d4a373;
+      --bg: #f8f9fa;
+      --text: #212529;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    .cart-btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 { margin-top: 0; color: var(--primary); }
+    .card .price { font-weight: bold; color: var(--accent); font-size: 1.2rem; }
+    .add-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .add-btn:hover { opacity: 0.9; }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+    }
+    .close-btn { background: #d9534f; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+    .checkout-btn { background: #5cb85c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+  </style>
 </head>
-
 <body>
-  <body>
 
-    <h1>Hello, my name is Anthony!</h1>
+  <header>
+    <div class="logo">Coal City Delights 🍲</div>
+    <button class="cart-btn" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
+  </header>
 
-    <p>I am learning Software Engineering!</p>
+  <div class="container">
+    <h2>Our Enugu Special Menu</h2>
+    <div class="menu-grid" id="menu-container"></div>
+  </div>
 
-    <button>Contact Me</button>
+  <!-- Cart Modal -->
+  <div class="modal" id="cart-modal">
+    <div class="modal-content">
+      <h2>Your Order Summary</h2>
+      <div id="cart-items"></div>
+      <h3>Total: ₦<span id="cart-total">0</span></h3>
 
-</body>
+      <hr>
+
+      <h3>Delivery Details</h3>
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" id="cust-name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label>Delivery Location (Enugu)</label>
+        <select id="cust-location">
+          <option value="Independence Layout">Independence Layout</option>
+          <option value="Ogui Road / GRA">Ogui Road / GRA</option>
+          <option value="Abakpa Nike">Abakpa Nike</option>
+          <option value="Trans-Ekulu">Trans-Ekulu</option>
+          <option value="New Haven">New Haven</option>
+          <option value="Agbeni / Coal Camp">Agbeni / Coal Camp</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Street Address</label>
+        <input type="text" id="cust-address" placeholder="House number and street" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="cust-phone" placeholder="08012345678" required>
+      </div>
+
+      <div style="display:flex; justify-content: space-between; margin-top: 1rem;">
+        <button class="close-btn" onclick="closeCart()">Close</button>
+        <button class="checkout-btn" onclick="submitOrder()">Place Order via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Restaurant Phone Number (Change to your phone number in international format without '+')
+    const RESTAURANT_WHATSAPP = "2348000000000";
+
+    const menu = [
+      { id: 1, name: "Special Abacha (African Salad)", price: 2500, desc: "Served with dried fish, Ugba, and ponmo." },
+      { id: 2, name: "Ofe Akwu & White Rice", price: 3500, desc: "Traditional Igbo palm nut stew served with beef and fish." },
+      { id: 3, name: "Nkwobi (Spicy Cow Foot)", price: 4000, desc: "Cooked in potash and palm oil gravy with Utazi leaves." },
+      { id: 4, name: "Ofe Owerri / Egusi with Semo", price: 4500, desc: "Rich local soup served with fresh fish and choice of swallow." },
+      { id: 5, name: "Isi Ewu (Goat Head Special)", price: 7000, desc: "Full portion prepared traditional style." },
+      { id: 6, name: "Chilled Palm Wine (1L)", price: 1500, desc: "Fresh natural palm wine." }
+    ];
+
+    let cart = [];
+
+    function renderMenu() {
+      const container = document.getElementById('menu-container');
+      container.innerHTML = menu.map(item => `
+        <div class="card">
+          <div>
+            <h3>${item.name}</h3>
+            <p>${item.desc}</p>
+          </div>
+          <div>
+            <div class="price">₦${item.price.toLocaleString()}</div>
+            <button class="add-btn" onclick="addToCart(${item.id})">Add to Order</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const item = menu.find(i => i.id === id);
+      const existing = cart.find(i => i.id === id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      
+      document.getElementById('cart-count').innerText = count;
+      document.getElementById('cart-total').innerText = total.toLocaleString();
+
+      const itemsContainer = document.getElementById('cart-items');
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+      } else {
+        itemsContainer.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong><br>
+              ₦${item.price.toLocaleString()} x ${item.qty}
+            </div>
+            <div>
+              <button onclick="changeQty(${item.id}, -1)">-</button>
+              <button onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+      updateCartUI();
+    }
+
+    function openCart() {
+      document.getElementById('cart-modal').style.display = 'flex';
+    }
+
+    function closeCart() {
+      document.getElementById('cart-modal').style.display = 'none';
+    }
+
+    function submitOrder() {
+      if (cart.length === 0) {
+        alert("Please add items to your cart first!");
+        return;
+      }
+
+      const name = document.getElementById('cust-name').value.trim();
+      const location = document.getElementById('cust-location').value;
+      const address = document.getElementById('cust-address').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+
+      if (!name || !address || !phone) {
+        alert("Please complete all delivery details.");
+        return;
+      }
+
+      let orderText = `*NEW ORDER - COAL CITY DELIGHTS*\n\n`;
+      orderText += `*Customer:* ${name}\n`;
+      orderText += `*Phone:* ${phone}\n`;
+      orderText += `*Location:* ${location}, Enugu\n`;
+      orderText += `*Address:* ${address}\n\n`;
+      orderText += `*Order Items:*\n`;
+
+      cart.forEach((item, index) => {
+        orderText += `${index + 1}. ${item.name} x${item.qty} - ₦${(item.price * item.qty).toLocaleString()}\n`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      orderText += `\n*Total Amount:* ₦${total.toLocaleString()}`;
+
+      const encodedURL = `https://wa.me/${RESTAURANT_WHATSAPP}?text=${encodeURIComponent(orderText)}`;
+      window.open(encodedURL, '_blank');
+    }
+
+    // Initialize page
+    renderMenu();
+  </script>
 </body>
 </html>
+
+  
