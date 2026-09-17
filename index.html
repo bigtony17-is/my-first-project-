@@ -156,7 +156,7 @@
         <input 
           type="text"
           id="search-input"
-          placeholder="Search Abacha, Nkwobi, Suya, Egusi..."
+          placeholder="Search Ofe Egusi,Isi ewu, Suya, Achicha, Nkwuocha, Abacha..."
           oninput="handleSearch(this.value)"
           class="w-full bg-slate-900 border border-slate-800 rounded-full pl-12 pr-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 shadow-inner"
         />
@@ -225,7 +225,7 @@
             />
           </div>
           <div class="absolute -bottom-6 -left-6 bg-amber-500 text-slate-950 p-6 rounded-2xl font-black text-center shadow-2xl hidden sm:block">
-            <span class="block text-3xl">10+</span>
+            <span class="block text-3xl">2+</span>
             <span class="text-xs uppercase tracking-wider font-bold">Years of Mastery</span>
           </div>
         </div>
@@ -324,7 +324,7 @@
           <i data-lucide="clock" class="w-8 h-8 text-emerald-400"></i>
           <h3 class="font-bold text-white text-lg">Operating Hours</h3>
           <p class="text-slate-400 text-xs leading-relaxed">
-            Monday – Sunday: 09:00 AM – 11:30 PM<br />
+            Monday – Saturday: 09:00 AM – 11:30 PM<br />
             VIP Night Lounge: 08:00 PM – Late
           </p>
         </div>
@@ -446,7 +446,7 @@
           <input
             type="text"
             id="cust-notes"
-            placeholder="Special Instructions (e.g. Extra spicy, extra utazi)"
+            placeholder="Special Instructions (e.g. Extra spicy, extra pepper)"
             class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
           />
         </div>
@@ -528,7 +528,7 @@
       <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-950">
         <div>
           <h3 class="font-bold text-white text-lg">Reserve a VIP Table</h3>
-          <p class="text-xs text-slate-400">Mama Ada Grand Kitchen • Independence Layout</p>
+          <p class="text-xs text-slate-400">Mama Ada Grand Kitchen • GRA ENUGU</p>
         </div>
         <button onclick="toggleReservationModal(false)" class="text-slate-400 hover:text-white p-1">
           <i data-lucide="x" class="w-6 h-6"></i>
@@ -539,7 +539,7 @@
         <i data-lucide="check-circle" class="w-16 h-16 text-emerald-400 mx-auto"></i>
         <h4 class="text-xl font-black text-white">Table Reservation Confirmed!</h4>
         <p id="reservation-confirmed-text" class="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
-          Thank you. We have saved your table.
+          Thank you. We have saved you a table.
         </p>
         <div class="pt-4">
           <button
@@ -654,7 +654,7 @@
       <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-left space-y-2 text-xs">
         <div class="flex justify-between text-slate-400">
           <span>Delivery Zone:</span>
-          <span id="success-zone" class="text-white font-medium">Independence Layout</span>
+          <span id="success-zone" class="text-white font-medium">GRA ENUGU</span>
         </div>
         <div class="flex justify-between text-slate-400">
           <span>Payment Mode:</span>
@@ -720,7 +720,7 @@
         category: "Soups & Swallows",
         price: 5000,
         image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        description: "Lumpy Egusi with stockfish, goat meat, and bitterleaf. Choice of Pounded Yam, Semo, or Wheat."
+        description: "Lumpy Egusi with stockfish, goat meat, and bitterleaf. Choice of Pounded Yam, Garri, or Wheat."
       },
       {
         id: "m6",
@@ -732,7 +732,7 @@
       },
       {
         id: "m7",
-        name: "Coal City Charcoal Chicken Suya",
+        name: "peppered  Chicken Suya",
         category: "Grills & Suya",
         price: 3800,
         image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80",
@@ -757,8 +757,8 @@
     ];
 
     const DELIVERY_ZONES = [
-      { id: "ind-layout", name: "Independence Layout (Near Restaurant)", fee: 800 },
-      { id: "gra", name: "GRA / Ogui Road / Bissala Rd", fee: 1000 },
+      { id: "ind-layout", name: "Opara Avenue / GRA (close to lounge) ", fee: 800 },
+      { id: "gra", name: "Independence Layout / Ogui Road / Bissala Rd", fee: 1000 },
       { id: "new-haven", name: "New Haven / Abakaliki Road", fee: 1200 },
       { id: "trans-ekulu", name: "Trans-Ekulu / Phase 6", fee: 1500 },
       { id: "abakpa", name: "Abakpa Nike / Liberty Estate", fee: 1500 },
@@ -777,7 +777,7 @@
       },
       {
         id: "r2",
-        name: "Mrs. Ngozi Okonkwo",
+        name: "Mrs. Nneji Ifeoma",
         location: "GRA, Enugu",
         rating: 5,
         comment: "Brought my family here for Sunday dinner. The Ofe Owerri and pounded yam were rich and extremely fresh.",
