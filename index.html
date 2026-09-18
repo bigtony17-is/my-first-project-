@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-NG" class="scroll-smooth">
 <head>
@@ -150,6 +151,12 @@
         <a href="#about" class="hover:text-orange-400 transition">About</a>
         <a href="#reviews" class="hover:text-orange-400 transition">Reviews</a>
         <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
+        <button
+          onclick="openReservation()"
+          class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl font-bold transition"
+        >
+          Reserve a Table
+        </button>
       </nav>
 
       <button
@@ -207,6 +214,13 @@
         >
           Explore Our Menu
         </a>
+
+        <button
+          onclick="openReservation()"
+          class="bg-white text-gray-950 hover:bg-orange-500 hover:text-white px-7 py-4 rounded-xl font-black transition"
+        >
+          Reserve a Table
+        </button>
 
         <a
           href="#contact"
@@ -1140,13 +1154,15 @@
 
 
         let orderMessage =
-          "Hello Mama Ada Grand Kitchen & Lounge!%0A%0A" +
-          "I would like to place an order.%0A%0A" +
-          "Customer: " + encodeURIComponent(name) + "%0A" +
-          "Phone: " + encodeURIComponent(phone) + "%0A" +
+          "MAMA ADA GRAND KITCHEN & LOUNGE - NEW ORDER%0A%0A" +
+          "Hello Mama Ada Grand Kitchen & Lounge,%0A%0A" +
+          "I would like to place an order with the following details:%0A%0A" +
+          "CUSTOMER INFORMATION%0A" +
+          "Name: " + encodeURIComponent(name) + "%0A" +
+          "Phone Number: " + encodeURIComponent(phone) + "%0A" +
           "Delivery Address: " + encodeURIComponent(address) + "%0A" +
-          "Payment: " + encodeURIComponent(payment) + "%0A%0A" +
-          "ORDER:%0A";
+          "Payment Method: " + encodeURIComponent(payment) + "%0A%0A" +
+          "ORDER DETAILS%0A";
 
 
         let total = 0;
@@ -1173,8 +1189,12 @@
 
 
         orderMessage +=
-          "%0ATotal: " +
-          encodeURIComponent(formatNaira(total));
+          "%0AORDER SUMMARY%0A" +
+          "Total Amount: " +
+          encodeURIComponent(formatNaira(total)) +
+          "%0A%0A" +
+          "Please confirm my order and let me know the estimated delivery time.%0A%0A" +
+          "Thank you for choosing Mama Ada Grand Kitchen & Lounge.";
 
 
         /*
@@ -1337,7 +1357,6 @@
 
         event.preventDefault();
 
-
         const name =
           document.getElementById("reservationName").value.trim();
 
@@ -1354,23 +1373,47 @@
           document.getElementById("reservationGuests").value;
 
 
-        const message =
-          "Hello Mama Ada Grand Kitchen & Lounge!%0A%0A" +
-          "I would like to make a reservation.%0A%0A" +
-          "Name: " + encodeURIComponent(name) + "%0A" +
-          "Phone: " + encodeURIComponent(phone) + "%0A" +
-          "Date: " + encodeURIComponent(date) + "%0A" +
-          "Time: " + encodeURIComponent(time) + "%0A" +
-          "Guests: " + encodeURIComponent(guests);
+        const reservationDetails =
+          "MAMA ADA GRAND KITCHEN & LOUNGE - TABLE RESERVATION\n\n" +
+          "Hello Mama Ada Grand Kitchen & Lounge,\n\n" +
+          "I would like to make a table reservation with the following details:\n\n" +
+          "Customer Name: " + name + "\n" +
+          "Phone Number: " + phone + "\n" +
+          "Reservation Date: " + date + "\n" +
+          "Reservation Time: " + time + "\n" +
+          "Number of Guests: " + guests + "\n\n" +
+          "Please confirm whether the requested date and time are available.\n\n" +
+          "Thank you.\n" +
+          "Mama Ada Grand Kitchen & Lounge Customer";
 
+
+        /* Send reservation to WhatsApp */
+        const whatsappMessage =
+          encodeURIComponent(reservationDetails);
 
         window.open(
           "https://wa.me/" +
           WHATSAPP_NUMBER +
           "?text=" +
-          message,
+          whatsappMessage,
           "_blank"
         );
+
+
+        /* Prepare reservation email */
+        const emailSubject = encodeURIComponent(
+          "Table Reservation Request - Mama Ada Grand Kitchen & Lounge"
+        );
+
+        const emailBody =
+          encodeURIComponent(reservationDetails);
+
+        window.location.href =
+          "mailto:nnejiifeanyichukwu46@gmail.com" +
+          "?subject=" +
+          emailSubject +
+          "&body=" +
+          emailBody;
 
 
         closeReservation();
