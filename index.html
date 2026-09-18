@@ -1158,11 +1158,13 @@
           "Hello Mama Ada Grand Kitchen & Lounge,%0A%0A" +
           "I would like to place an order with the following details:%0A%0A" +
           "CUSTOMER INFORMATION%0A" +
-          "Name: " + encodeURIComponent(name) + "%0A" +
+          "━━━━━━━━━━━━━━━━━━━━%0A" +
+          "Customer Name: " + encodeURIComponent(name) + "%0A" +
           "Phone Number: " + encodeURIComponent(phone) + "%0A" +
           "Delivery Address: " + encodeURIComponent(address) + "%0A" +
           "Payment Method: " + encodeURIComponent(payment) + "%0A%0A" +
-          "ORDER DETAILS%0A";
+          "ORDERED MENU%0A" +
+          "━━━━━━━━━━━━━━━━━━━━%0A";
 
 
         let total = 0;
@@ -1176,21 +1178,25 @@
           total += subtotal;
 
           orderMessage +=
-            encodeURIComponent(
-              item.quantity +
-              " x " +
-              item.name +
-              " - " +
-              formatNaira(subtotal)
-            ) +
-            "%0A";
+            "Menu Item: " + encodeURIComponent(item.name) + "%0A" +
+            "Category: " + encodeURIComponent(item.category) + "%0A" +
+            "Unit Price: " + encodeURIComponent(formatNaira(item.price)) + "%0A" +
+            "Quantity: " + encodeURIComponent(item.quantity) + "%0A" +
+            "Subtotal: " + encodeURIComponent(formatNaira(subtotal)) + "%0A" +
+            "--------------------%0A";
 
         });
 
 
         orderMessage +=
           "%0AORDER SUMMARY%0A" +
-          "Total Amount: " +
+          "━━━━━━━━━━━━━━━━━━━━%0A" +
+          "Total Items: " +
+          encodeURIComponent(
+            cart.reduce((sum, item) => sum + item.quantity, 0)
+          ) +
+          "%0A" +
+          "TOTAL AMOUNT: " +
           encodeURIComponent(formatNaira(total)) +
           "%0A%0A" +
           "Please confirm my order and let me know the estimated delivery time.%0A%0A" +
