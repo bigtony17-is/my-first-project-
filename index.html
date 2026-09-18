@@ -1,1198 +1,1414 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-NG" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mama ada Grand Kitchen & Lounge | Enugu, Nigeria</title>
-  
-  <!-- Tailwind CSS CDN -->
+
+  <!-- SEO -->
+  <title>Mama Ada Grand Kitchen & Lounge | Restaurant in Enugu, Nigeria</title>
+
+  <meta
+    name="description"
+    content="Mama Ada Grand Kitchen & Lounge is a restaurant in GRA, Enugu, Nigeria serving authentic Igbo delicacies, Nkwobi, Abacha, Isi Ewu, Egusi soup, Suya and fresh palm wine."
+  />
+
+  <meta name="author" content="Mama Ada Grand Kitchen & Lounge" />
+  <meta name="robots" content="index, follow" />
+
+  <link
+    rel="canonical"
+    href="https://bigtony17-is.github.io/my-first-project-/"
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:title"
+    content="Mama Ada Grand Kitchen & Lounge | Enugu, Nigeria"
+  />
+  <meta
+    property="og:description"
+    content="Authentic Igbo dining, Nkwobi, Abacha, Isi Ewu, Egusi, Suya and more in GRA, Enugu."
+  />
+  <meta
+    property="og:url"
+    content="https://bigtony17-is.github.io/my-first-project-/"
+  />
+
+  <meta name="theme-color" content="#111827" />
+
+  <!-- Restaurant Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://bigtony17-is.github.io/my-first-project-/#restaurant",
+    "name": "Mama Ada Grand Kitchen & Lounge",
+    "url": "https://bigtony17-is.github.io/my-first-project-/",
+    "telephone": "+2348068091772",
+    "servesCuisine": [
+      "Nigerian",
+      "Igbo"
+    ],
+    "acceptsReservations": true,
+    "hasMenu": "https://bigtony17-is.github.io/my-first-project-/#menu",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot 17A, Alderton Street, GRA",
+      "addressLocality": "Enugu",
+      "addressRegion": "Enugu State",
+      "addressCountry": "NG"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "23:30"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
 
-  <!-- ================= HEADER & NAVIGATION ================= -->
-  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-emerald-600 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-          CC
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.72),
+          rgba(0, 0, 0, 0.48)
+        );
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .menu-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-white">
+
+  <!-- ================= HEADER ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full bg-orange-500 flex items-center justify-center font-black text-lg">
+          MA
         </div>
+
         <div>
-          <span class="block text-lg font-black tracking-tight text-white leading-none">MAMA ADA</span>
-          <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Grand Kitchen & Lounge</span>
+          <span class="block text-lg font-black tracking-tight text-white leading-none">
+            MAMA ADA GRAND KITCHEN
+          </span>
+
+          <span class="block text-xs text-orange-400 font-semibold tracking-wider">
+            & LOUNGE
+          </span>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
-        <a href="#menu" class="hover:text-amber-400 transition-colors">Our Menu</a>
-        <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
-        <a href="#reviews" class="hover:text-amber-400 transition-colors">Guest Reviews</a>
-        <a href="#contact" class="hover:text-amber-400 transition-colors">Location</a>
-      </div>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold">
+        <a href="#home" class="hover:text-orange-400 transition">Home</a>
+        <a href="#menu" class="hover:text-orange-400 transition">Menu</a>
+        <a href="#about" class="hover:text-orange-400 transition">About</a>
+        <a href="#reviews" class="hover:text-orange-400 transition">Reviews</a>
+        <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
+      </nav>
 
-      <!-- Actions -->
-      <div class="flex items-center space-x-4">
-        <button 
-          onclick="toggleReservationModal(true)"
-          class="hidden lg:flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all"
-        >
-          <i data-lucide="calendar" class="w-4 h-4"></i>
-          <span>Book A Table</span>
-        </button>
-
-        <button 
-          onclick="toggleCart(true)"
-          class="relative bg-emerald-600 hover:bg-emerald-500 text-white p-3 rounded-full shadow-lg shadow-emerald-900/40 transition-transform active:scale-95"
-          aria-label="Open Cart"
-        >
-          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-          <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-amber-400 text-slate-950 font-black text-xs w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
-            0
-          </span>
-        </button>
-
-        <!-- Mobile Menu Trigger -->
-        <button 
-          onclick="toggleMobileMenu()"
-          class="md:hidden p-2 text-slate-300 hover:text-white"
-        >
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 py-4 space-y-3">
-      <a href="#menu" onclick="toggleMobileMenu()" class="block text-slate-200 font-medium">Menu</a>
-      <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-200 font-medium">About Us</a>
-      <a href="#reviews" onclick="toggleMobileMenu()" class="block text-slate-200 font-medium">Reviews</a>
-      <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-200 font-medium">Location</a>
-      <button 
-        onclick="toggleMobileMenu(); toggleReservationModal(true)"
-        class="w-full text-center bg-amber-500 text-slate-950 font-bold py-2 rounded-lg text-sm"
+      <button
+        onclick="openCart()"
+        class="relative bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition"
       >
-        Reserve Table
+        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+        Cart
+        <span
+          id="cartCount"
+          class="absolute -top-2 -right-2 bg-white text-gray-950 w-6 h-6 rounded-full text-xs flex items-center justify-center font-black"
+        >0</span>
       </button>
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6">
-      <div class="inline-flex items-center space-x-2 bg-emerald-950/80 border border-emerald-500/40 px-4 py-2 rounded-full text-emerald-300 text-xs font-semibold uppercase tracking-widest shadow-xl backdrop-blur-md">
-        <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
-        <span>GRA• Enugu State, Nigeria</span>
-      </div>
 
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-none">
-        Authentic Heritage, <br />
-        <span class="bg-gradient-to-r from-amber-400 via-emerald-400 to-amber-200 bg-clip-text text-transparent">
-          Unrivaled Elegance
+  <!-- ================= HERO ================= -->
+  <section
+    id="home"
+    class="min-h-screen flex items-center justify-center relative pt-24"
+    style="
+      background-image:
+      url('https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=2000&q=85');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-5 text-center">
+
+      <p class="text-orange-400 uppercase tracking-[0.3em] font-bold text-sm mb-5">
+        GRA, Enugu State, Nigeria
+      </p>
+
+      <h1 class="text-4xl md:text-7xl font-black leading-tight mb-6">
+        Mama Ada Grand Kitchen
+        <br />
+        <span class="text-orange-400">
+          & Lounge
         </span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-base sm:text-xl text-slate-300 font-light leading-relaxed">
-        Experience the true essence of Igbo gastronomy in Coal City. From spicy <strong class="text-amber-400 font-semibold">Nkwobi</strong> and fresh <strong class="text-amber-400 font-semibold">Abacha</strong> to sizzling grills and chilled native palm wine.
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-200 leading-relaxed mb-8">
+        Authentic Igbo dining in Enugu, featuring traditional Nigerian
+        delicacies, Nkwobi, Abacha, Isi Ewu, Egusi soup, Suya,
+        fresh palm wine and more.
       </p>
 
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
           href="#menu"
-          class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black rounded-full shadow-xl shadow-amber-500/20 hover:scale-105 transition-all text-center uppercase tracking-wider text-sm flex items-center justify-center space-x-2"
+          class="bg-orange-500 hover:bg-orange-600 px-7 py-4 rounded-xl font-black transition"
         >
-          <i data-lucide="utensils" class="w-5 h-5"></i>
-          <span>Explore Our Food Menu</span>
+          Explore Our Menu
         </a>
-        
-        <button 
-          onclick="toggleReservationModal(true)"
-          class="w-full sm:w-auto px-8 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold rounded-full border border-slate-700 shadow-xl transition-all text-center uppercase tracking-wider text-sm flex items-center justify-center space-x-2"
+
+        <a
+          href="#contact"
+          class="border border-white/40 hover:bg-white hover:text-gray-950 px-7 py-4 rounded-xl font-black transition"
         >
-          <i data-lucide="calendar" class="w-5 h-5 text-amber-400"></i>
-          <span>Reserve VIP Table</span>
-        </button>
+          Visit Us
+        </a>
       </div>
 
-      <!-- Quick Stats -->
-      <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-left border-t border-slate-800/80 mt-12 max-w-4xl mx-auto">
-        <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/50">
-          <span class="block text-2xl font-black text-amber-400">100%</span>
-          <span class="text-xs text-slate-400 uppercase tracking-wider">Fresh Native Ingredients</span>
-        </div>
-        <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/50">
-          <span class="block text-2xl font-black text-emerald-400">&lt; 35 Mins</span>
-          <span class="text-xs text-slate-400 uppercase tracking-wider">Average Enugu Delivery</span>
-        </div>
-        <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/50">
-          <span class="block text-2xl font-black text-amber-400">4.9 ★</span>
-          <span class="text-xs text-slate-400 uppercase tracking-wider">Top Rated Lounge</span>
-        </div>
-        <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/50">
-          <span class="block text-2xl font-black text-emerald-400">Fresh</span>
-          <span class="text-xs text-slate-400 uppercase tracking-wider">Nsukka Palm Wine Daily</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14">
 
-  <!-- ================= MENU SECTION ================= -->
-  <section id="menu" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-      <h2 class="text-xs font-black uppercase tracking-widest text-emerald-400">Prepared Fresh Daily</h2>
-      <p class="text-3xl font-black text-white">Our Signature MAMA ADA Menu</p>
-    </div>
-
-    <!-- Controls -->
-    <div class="space-y-6 mb-12">
-      <!-- Search -->
-      <div class="max-w-md mx-auto relative">
-        <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-        <input 
-          type="text"
-          id="search-input"
-          placeholder="Search Ofe Egusi, Isi ewu, Suya, Nkwuocha, Abacha..."
-          oninput="handleSearch(this.value)"
-          class="w-full bg-slate-900 border border-slate-800 rounded-full pl-12 pr-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 shadow-inner"
-        />
-        <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-
-      <!-- Categories -->
-      <div id="category-tabs" class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-
-    <!-- Menu Grid -->
-    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Rendered by JS -->
-    </div>
-  </section>
-
-  <!-- ================= ABOUT SECTION ================= -->
-  <section id="about" class="py-16 bg-slate-900/40 border-y border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-          <div class="inline-flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-widest">
-            <i data-lucide="award" class="w-4 h-4"></i>
-            <span>Enugu Premier Dining</span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
-            Preserving Igbo Culinary Heritage with Modern Hospitality
-          </h2>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Located in the serene heart of GRA Enugu, Mama Ada Grand Kitchen provides a luxurious sanctuary for food lovers. Whether you are hosting a business lunch, family gathering, or dynamic evening out, we prepare every dish using time-honored traditional techniques and authentic spices sourced directly from local producers across Enugu state.
-          </p>
-
-          <div class="grid grid-cols-2 gap-4 pt-2">
-            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex items-start space-x-3">
-              <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400 shrink-0 mt-1"></i>
-              <div>
-                <h3 class="font-bold text-white text-sm">Hygienic Prep</h3>
-                <p class="text-xs text-slate-400">Prepared in world-class clean kitchens.</p>
-              </div>
-            </div>
-            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex items-start space-x-3">
-              <i data-lucide="wine" class="w-6 h-6 text-amber-400 shrink-0 mt-1"></i>
-              <div>
-                <h3 class="font-bold text-white text-sm">Executive Lounge</h3>
-                <p class="text-xs text-slate-400">VIP booths and cocktail bar.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative">
-          <div class="grid grid-cols-2 gap-4">
-            <img 
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" 
-              alt="Interior" 
-              class="rounded-2xl object-cover h-64 w-full border border-slate-800 shadow-2xl"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80" 
-              alt="Food" 
-              class="rounded-2xl object-cover h-64 w-full border border-slate-800 shadow-2xl mt-8"
-            />
-          </div>
-          <div class="absolute -bottom-6 -left-6 bg-amber-500 text-slate-950 p-6 rounded-2xl font-black text-center shadow-2xl hidden sm:block">
-            <span class="block text-3xl">2+</span>
-            <span class="text-xs uppercase tracking-wider font-bold">Years of Mastery</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= REVIEWS SECTION ================= -->
-  <section id="reviews" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
-      <h2 class="text-xs font-black uppercase tracking-widest text-amber-400">Customer Feedback</h2>
-      <p class="text-3xl font-black text-white">What Our Guests Say</p>
-    </div>
-
-    <!-- Review Grid -->
-    <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <!-- Rendered by JS -->
-    </div>
-
-    <!-- Submit Review Form -->
-    <div class="max-w-2xl mx-auto bg-slate-900/80 border border-slate-800 p-6 sm:p-8 rounded-3xl">
-      <h3 class="text-xl font-bold text-white mb-2 flex items-center space-x-2">
-        <i data-lucide="message-square" class="w-5 h-5 text-amber-400"></i>
-        <span>Leave a Review</span>
-      </h3>
-      <p class="text-xs text-slate-400 mb-6">Dined with us recently? Share your experience with the Mama Ada community.</p>
-
-      <div id="review-success" class="hidden mb-4 p-3 bg-emerald-950 border border-emerald-500/40 text-emerald-300 rounded-xl text-xs font-semibold flex items-center space-x-2">
-        <i data-lucide="check-circle" class="w-4 h-4"></i>
-        <span>Thank you! Your review has been added successfully.</span>
-      </div>
-
-      <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input 
-            type="text" 
-            id="rev-name"
-            placeholder="Your Full Name"
-            required
-            class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"
-          />
-          <input 
-            type="text" 
-            id="rev-location"
-            placeholder="Neighborhood (e.g. GRA, Independence Layout)"
-            class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"
-          />
-        </div>
-
-        <div class="flex items-center space-x-3">
-          <label class="text-xs text-slate-400">Rating:</label>
-          <select 
-            id="rev-rating"
-            class="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-amber-400 font-bold focus:outline-none"
-          >
-            <option value="5">5 ★★★★★ (Exceptional)</option>
-            <option value="4">4 ★★★★☆ (Very Good)</option>
-            <option value="3">3 ★★★☆☆ (Average)</option>
-          </select>
-        </div>
-
-        <textarea 
-          id="rev-comment"
-          rows="3"
-          placeholder="Tell us about the meal quality, speed, or ambiance..."
-          required
-          class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500 resize-none"
-        ></textarea>
-
-        <button 
-          type="submit"
-          class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2"
-        >
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Submit Guest Review</span>
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT & LOCATION ================= -->
-  <section id="contact" class="py-16 bg-slate-900/60 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <i data-lucide="map-pin" class="w-8 h-8 text-amber-400"></i>
-          <h3 class="font-bold text-white text-lg">Restaurant Location</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Plot 17A, Alderton Street,<br />
-            GRA, Enugu State, Nigeria
+        <div class="glass rounded-2xl p-5">
+          <div class="text-orange-400 font-black text-2xl">100%</div>
+          <p class="text-sm text-gray-300 mt-1">
+            Fresh Native Ingredients
           </p>
         </div>
 
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <i data-lucide="clock" class="w-8 h-8 text-emerald-400"></i>
-          <h3 class="font-bold text-white text-lg">Operating Hours</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Monday – Saturday: 09:00 AM – 11:30 PM<br />
-            VIP Night Lounge: 08:00 PM – Late
+        <div class="glass rounded-2xl p-5">
+          <div class="text-orange-400 font-black text-2xl">
+            &lt; 35 Mins
+          </div>
+          <p class="text-sm text-gray-300 mt-1">
+            Average Enugu Delivery
           </p>
         </div>
 
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <i data-lucide="phone" class="w-8 h-8 text-amber-400"></i>
-          <h3 class="font-bold text-white text-lg">Direct Contact</h3>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Phone: +234 8068091772 / +234 8062790804<br />
-            Email: orders@nnejiifeanyichukwu46@gmail.com 
+        <div class="glass rounded-2xl p-5">
+          <div class="text-orange-400 font-black text-2xl">
+            Igbo
+          </div>
+          <p class="text-sm text-gray-300 mt-1">
+            Authentic Cuisine
           </p>
         </div>
+
+        <div class="glass rounded-2xl p-5">
+          <div class="text-orange-400 font-black text-2xl">
+            Daily
+          </div>
+          <p class="text-sm text-gray-300 mt-1">
+            Fresh Palm Wine
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
-    <p>© 2026 Mama Ada Grand Kitchen & Lounge. All Rights Reserved. Enugu, Nigeria.</p>
-  </footer>
 
-  <!-- ================= CART DRAWER ================= -->
-  <div id="cart-drawer-bg" onclick="toggleCart(false)" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50"></div>
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-slate-900 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
-    <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-      <div class="flex items-center space-x-2">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
-        <h3 class="font-bold text-white text-base">Your Food Order</h3>
-      </div>
-      <button onclick="toggleCart(false)" class="text-slate-400 hover:text-white p-1">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-    </div>
+  <!-- ================= MENU ================= -->
+  <section id="menu" class="py-24 bg-white text-gray-950">
 
-    <!-- Items List -->
-    <div id="cart-items-list" class="p-5 overflow-y-auto flex-1 space-y-4">
-      <!-- Rendered by JS -->
-    </div>
+    <div class="max-w-7xl mx-auto px-5">
 
-    <!-- Footer -->
-    <div id="cart-footer" class="hidden p-5 border-t border-slate-800 bg-slate-950 space-y-4">
-      <div class="space-y-2 text-xs">
-        <div class="flex justify-between text-slate-400">
-          <span>Subtotal</span>
-          <span id="cart-subtotal" class="text-white font-bold">₦0</span>
-        </div>
-        <div class="flex justify-between text-slate-400">
-          <span>Estimated Enugu Delivery</span>
-          <span class="text-emerald-400">Calculated at checkout</span>
-        </div>
+      <div class="text-center mb-14">
+        <p class="text-orange-600 font-bold uppercase tracking-widest text-sm">
+          Our Kitchen
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black mt-3">
+          Mama Ada Menu
+        </h2>
+
+        <p class="max-w-2xl mx-auto text-gray-600 mt-5">
+          Discover traditional Igbo and Nigerian dishes prepared with
+          rich local flavours and carefully selected ingredients.
+        </p>
       </div>
 
-      <button
-        onclick="openCheckout()"
-        class="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-950 flex items-center justify-center space-x-2"
-      >
-        <span>Proceed To Enugu Checkout</span>
-        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-      </button>
-    </div>
-  </div>
+      <div
+        id="menuContainer"
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"
+      ></div>
 
-  <!-- ================= CHECKOUT MODAL ================= -->
-  <div id="checkout-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
-      <div class="p-6 border-b border-slate-800 flex justify-between items-center sticky top-0 bg-slate-900 z-10">
+    </div>
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="py-24 bg-gray-100 text-gray-950">
+
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
         <div>
-          <h3 class="font-bold text-white text-lg">Enugu Delivery Checkout</h3>
-          <p class="text-xs text-slate-400">Enter delivery address in Enugu State</p>
+          <p class="text-orange-600 font-bold uppercase tracking-widest text-sm">
+            About Us
+          </p>
+
+          <h2 class="text-4xl md:text-5xl font-black mt-3 leading-tight">
+            About Mama Ada Grand Kitchen & Lounge in Enugu
+          </h2>
+
+          <p class="text-gray-700 leading-relaxed mt-6">
+            Mama Ada Grand Kitchen & Lounge is a restaurant in GRA,
+            Enugu State, Nigeria, created to celebrate the rich flavours
+            and culinary traditions of Igbo cuisine.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed mt-4">
+            From Nkwobi, Abacha and Isi Ewu to Egusi soup, Ofe Akwu,
+            Suya and fresh palm wine, our menu brings together familiar
+            Nigerian flavours in a comfortable dining and lounge
+            environment.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed mt-4">
+            Whether you are visiting for a meal, meeting friends,
+            celebrating an occasion or relaxing in the evening,
+            Mama Ada Grand Kitchen & Lounge welcomes you.
+          </p>
+
+          <a
+            href="#contact"
+            class="inline-block mt-7 bg-gray-950 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition"
+          >
+            Find Us in Enugu
+          </a>
         </div>
-        <button onclick="toggleCheckout(false)" class="text-slate-400 hover:text-white p-1">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
+
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+            alt="Traditional Nigerian and African food at Mama Ada Grand Kitchen & Lounge in Enugu"
+            class="w-full h-[450px] object-cover"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= REVIEWS ================= -->
+  <section id="reviews" class="py-24 bg-gray-950">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+        <p class="text-orange-400 font-bold uppercase tracking-widest text-sm">
+          Guest Experiences
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black mt-3">
+          What Our Guests Say
+        </h2>
       </div>
 
-      <form onsubmit="handleCheckoutSubmit(event)" class="p-6 space-y-6">
-        <!-- Zone -->
-        <div class="space-y-2">
-          <label class="text-xs font-bold text-amber-400 uppercase tracking-wider block">
-            1. Select Enugu Neighborhood/Zone
-          </label>
-          <select
-            id="checkout-zone"
-            onchange="updateCheckoutTotal()"
-            class="w-full bg-slate-950 border border-slate-800 text-white rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-emerald-500"
-          >
-            <!-- Options added by JS -->
-          </select>
-        </div>
+      <div
+        id="reviewsContainer"
+        class="grid md:grid-cols-3 gap-7"
+      ></div>
 
-        <!-- Customer Info -->
-        <div class="space-y-3">
-          <label class="text-xs font-bold text-amber-400 uppercase tracking-wider block">
-            2. Contact & Address Details
-          </label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <input
-              type="text"
-              id="cust-name"
-              placeholder="Full Name"
-              required
-              class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-            />
-            <input
-              type="tel"
-              id="cust-phone"
-              placeholder="Phone Number (e.g., 08012345678)"
-              required
-              class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-            />
-          </div>
+      <div class="max-w-2xl mx-auto mt-14 bg-white text-gray-950 rounded-3xl p-7">
+
+        <h3 class="text-2xl font-black mb-5">
+          Leave a Review
+        </h3>
+
+        <form id="reviewForm" class="space-y-4">
+
           <input
+            id="reviewName"
             type="text"
-            id="cust-address"
-            placeholder="Street Address, House No, Landmark"
+            placeholder="Your name"
             required
-            class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-500"
           />
-          <input
-            type="text"
-            id="cust-notes"
-            placeholder="Special Instructions (e.g. Extra spicy, extra pepper)"
-            class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-          />
-        </div>
 
-        <!-- Payment Option -->
-        <div class="space-y-3">
-          <label class="text-xs font-bold text-amber-400 uppercase tracking-wider block">
-            3. Select Payment Option
-          </label>
-          <div class="grid grid-cols-2 gap-3">
-            <button
-              type="button"
-              id="btn-pod"
-              onclick="setPaymentMethod('pod')"
-              class="p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-emerald-950/60 border-emerald-500 text-white"
-            >
-              <i data-lucide="truck" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
-              <div>
-                <strong class="block text-xs text-white font-bold">Pay On Delivery</strong>
-                <span class="text-[10px] text-slate-400">Cash or POS on Arrival</span>
-              </div>
-            </button>
-
-            <button
-              type="button"
-              id="btn-online"
-              onclick="setPaymentMethod('online')"
-              class="p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-slate-950 border-slate-800 text-slate-400"
-            >
-              <i data-lucide="credit-card" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-              <div>
-                <strong class="block text-xs text-white font-bold">Paystack Online</strong>
-                <span class="text-[10px] text-slate-400">Card / Mobile Transfer</span>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Breakdown -->
-        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-xs">
-          <div class="flex justify-between text-slate-400">
-            <span>Food Items Total</span>
-            <span id="checkout-subtotal" class="text-white font-bold">₦0</span>
-          </div>
-          <div class="flex justify-between text-slate-400">
-            <span id="checkout-zone-name">Delivery Fee</span>
-            <span id="checkout-delivery-fee" class="text-amber-400 font-bold">₦0</span>
-          </div>
-          <div class="border-t border-slate-800 pt-2 flex justify-between text-sm font-black text-white">
-            <span>Grand Total</span>
-            <span id="checkout-grand-total" class="text-emerald-400">₦0</span>
-          </div>
-        </div>
-
-        <div class="flex gap-3">
-          <button
-            type="button"
-            onclick="toggleCheckout(false)"
-            class="w-1/3 bg-slate-800 text-slate-300 font-bold py-3.5 rounded-xl text-xs uppercase"
+          <select
+            id="reviewRating"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-500"
           >
-            Back
-          </button>
+            <option value="5">★★★★★ 5 Stars</option>
+            <option value="4">★★★★☆ 4 Stars</option>
+            <option value="3">★★★☆☆ 3 Stars</option>
+            <option value="2">★★☆☆☆ 2 Stars</option>
+            <option value="1">★☆☆☆☆ 1 Star</option>
+          </select>
+
+          <textarea
+            id="reviewText"
+            rows="4"
+            placeholder="Write your experience..."
+            required
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-500"
+          ></textarea>
+
           <button
             type="submit"
-            id="checkout-submit-btn"
-            class="w-2/3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg flex items-center justify-center space-x-2"
+            class="w-full bg-gray-950 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition"
           >
-            <i data-lucide="message-square" class="w-4 h-4"></i>
-            <span>Place Order via WhatsApp</span>
+            Submit Review
           </button>
-        </div>
-      </form>
+
+        </form>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <!-- ================= RESERVATION MODAL ================= -->
-  <div id="reservation-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl">
-      <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-        <div>
-          <h3 class="font-bold text-white text-lg">Reserve a VIP Table</h3>
-          <p class="text-xs text-slate-400">Mama Ada Grand Kitchen • GRA ENUGU</p>
-        </div>
-        <button onclick="toggleReservationModal(false)" class="text-slate-400 hover:text-white p-1">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-      </div>
 
-      <div id="reservation-confirmed-view" class="hidden p-8 text-center space-y-4">
-        <i data-lucide="check-circle" class="w-16 h-16 text-emerald-400 mx-auto"></i>
-        <h4 class="text-xl font-black text-white">Table Reservation Confirmed!</h4>
-        <p id="reservation-confirmed-text" class="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
-          Thank you. We have saved you a table.
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="py-24 bg-orange-500 text-white">
+
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+
+        <p class="font-bold uppercase tracking-widest text-sm">
+          Come Visit Us
         </p>
-        <div class="pt-4">
-          <button
-            onclick="toggleReservationModal(false)"
-            class="bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs uppercase"
-          >
-            Done
-          </button>
-        </div>
+
+        <h2 class="text-4xl md:text-5xl font-black mt-3">
+          Mama Ada Grand Kitchen & Lounge
+        </h2>
+
+        <p class="mt-4 text-white/90">
+          Your destination for authentic Igbo dining in GRA, Enugu.
+        </p>
+
       </div>
 
-      <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="p-6 space-y-4">
-        <div>
-          <label class="text-xs font-bold text-slate-400 block mb-1">Full Name</label>
-          <input
-            type="text"
-            id="res-name"
-            required
-            placeholder="Chief / Dr / Mr / Mrs Name"
-            class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-          />
+      <div class="grid md:grid-cols-3 gap-7">
+
+        <!-- Address -->
+        <div class="bg-black/20 rounded-3xl p-7">
+
+          <i data-lucide="map-pin" class="w-9 h-9 mb-5"></i>
+
+          <h3 class="text-xl font-black mb-3">
+            Our Location
+          </h3>
+
+          <p class="leading-relaxed">
+            Plot 17A, Alderton Street,<br />
+            GRA, Enugu State,<br />
+            Nigeria
+          </p>
+
         </div>
 
-        <div>
-          <label class="text-xs font-bold text-slate-400 block mb-1">Phone Number</label>
-          <input
-            type="tel"
-            id="res-phone"
-            required
-            placeholder="080 0000 0000"
-            class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-          />
+        <!-- Phone -->
+        <div class="bg-black/20 rounded-3xl p-7">
+
+          <i data-lucide="phone" class="w-9 h-9 mb-5"></i>
+
+          <h3 class="text-xl font-black mb-3">
+            Call Us
+          </h3>
+
+          <a
+            href="tel:+2348068091772"
+            class="block hover:underline"
+          >
+            +234 806 809 1772
+          </a>
+
+          <a
+            href="tel:+2348062790804"
+            class="block hover:underline mt-2"
+          >
+            +234 806 279 0804
+          </a>
+
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-xs font-bold text-slate-400 block mb-1">Date</label>
-            <input
-              type="date"
-              id="res-date"
-              required
-              class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-            />
-          </div>
-          <div>
-            <label class="text-xs font-bold text-slate-400 block mb-1">Time</label>
-            <input
-              type="time"
-              id="res-time"
-              value="19:00"
-              required
-              class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
-            />
-          </div>
+        <!-- Email -->
+        <div class="bg-black/20 rounded-3xl p-7">
+
+          <i data-lucide="mail" class="w-9 h-9 mb-5"></i>
+
+          <h3 class="text-xl font-black mb-3">
+            Email Us
+          </h3>
+
+          <a
+            href="mailto:nnejiifeanyichukwu46@gmail.com?subject=Mama%20Ada%20Grand%20Kitchen%20%26%20Lounge%20Enquiry"
+            class="break-all hover:underline"
+          >
+            nnejiifeanyichukwu46@gmail.com
+          </a>
+
+          <p class="text-sm mt-3 text-white/80">
+            Click the email address to contact us.
+          </p>
+
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-xs font-bold text-slate-400 block mb-1">Number of Guests</label>
-            <select
-              id="res-guests"
-              class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none"
-            >
-              <option value="1">1 Person</option>
-              <option value="2" selected>2 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="6">6 Guests</option>
-              <option value="10">10+ VIP Group</option>
-            </select>
-          </div>
+      </div>
 
-          <div>
-            <label class="text-xs font-bold text-slate-400 block mb-1">Dining Area</label>
-            <select
-              id="res-area"
-              class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none"
-            >
-              <option value="Terrace Garden Lounge">Terrace Garden</option>
-              <option value="Indoor VIP Room">Indoor VIP Room</option>
-              <option value="Executive Cocktail Bar">Executive Bar</option>
-            </select>
-          </div>
+
+      <!-- Opening Hours -->
+      <div class="mt-8 bg-black/20 rounded-3xl p-8 text-center">
+
+        <i data-lucide="clock" class="w-9 h-9 mx-auto mb-4"></i>
+
+        <h3 class="text-2xl font-black mb-4">
+          Opening Hours
+        </h3>
+
+        <p>
+          Monday – Saturday:
+          <strong>09:00 AM – 11:30 PM</strong>
+        </p>
+
+        <p class="mt-2">
+          VIP Night Lounge:
+          <strong>08:00 PM – Late</strong>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black py-10">
+
+    <div class="max-w-7xl mx-auto px-5 text-center">
+
+      <div class="text-xl font-black">
+        MAMA ADA GRAND KITCHEN & LOUNGE
+      </div>
+
+      <p class="text-gray-400 mt-2">
+        Authentic Igbo Dining in Enugu, Nigeria
+      </p>
+
+      <p class="text-gray-500 text-sm mt-6">
+        © 2026 Mama Ada Grand Kitchen & Lounge.
+        All Rights Reserved.
+      </p>
+
+      <p class="text-gray-500 text-sm mt-2">
+        GRA, Enugu State, Nigeria
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= CART MODAL ================= -->
+  <div
+    id="cartModal"
+    class="hidden fixed inset-0 z-[100] modal-backdrop items-center justify-center p-5"
+  >
+
+    <div class="bg-white text-gray-950 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+
+      <div class="p-6 border-b flex items-center justify-between">
+
+        <h2 class="text-2xl font-black">
+          Your Cart
+        </h2>
+
+        <button
+          onclick="closeCart()"
+          class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
+        >
+          <i data-lucide="x"></i>
+        </button>
+
+      </div>
+
+      <div id="cartItems" class="p-6"></div>
+
+      <div class="border-t p-6">
+
+        <div class="flex justify-between text-xl font-black mb-5">
+          <span>Total</span>
+          <span id="cartTotal">₦0</span>
         </div>
 
         <button
-          type="submit"
-          class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all mt-4"
+          onclick="openCheckout()"
+          class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-black transition"
         >
-          Confirm Table Reservation
+          Proceed to Checkout
         </button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+  <div
+    id="checkoutModal"
+    class="hidden fixed inset-0 z-[110] modal-backdrop items-center justify-center p-5"
+  >
+
+    <div class="bg-white text-gray-950 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+
+      <div class="p-6 border-b flex items-center justify-between">
+
+        <h2 class="text-2xl font-black">
+          Checkout
+        </h2>
+
+        <button
+          onclick="closeCheckout()"
+          class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"
+        >
+          <i data-lucide="x"></i>
+        </button>
+
+      </div>
+
+      <form id="checkoutForm" class="p-6 space-y-4">
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="Full Name"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="Phone Number"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <textarea
+          id="customerAddress"
+          rows="3"
+          placeholder="Delivery Address"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        ></textarea>
+
+        <select
+          id="paymentMethod"
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        >
+          <option value="Pay on Delivery">
+            Pay on Delivery
+          </option>
+
+          <option value="Paystack">
+            Paystack Online
+          </option>
+        </select>
+
+        <button
+          type="submit"
+          class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-black"
+        >
+          Place Order
+        </button>
+
       </form>
+
     </div>
   </div>
 
-  <!-- ================= SUCCESS CONFIRMATION MODAL ================= -->
-  <div id="order-success-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm p-6 text-center space-y-4 shadow-2xl">
-      <div class="w-16 h-16 bg-emerald-950 border border-emerald-500/40 rounded-full flex items-center justify-center text-emerald-400 mx-auto">
-        <i data-lucide="check" class="w-8 h-8"></i>
+
+  <!-- ================= RESERVATION MODAL ================= -->
+  <div
+    id="reservationModal"
+    class="hidden fixed inset-0 z-[120] modal-backdrop items-center justify-center p-5"
+  >
+
+    <div class="bg-white text-gray-950 rounded-3xl w-full max-w-lg">
+
+      <div class="p-6 border-b flex justify-between">
+
+        <h2 class="text-2xl font-black">
+          Reserve a Table
+        </h2>
+
+        <button
+          onclick="closeReservation()"
+          class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"
+        >
+          <i data-lucide="x"></i>
+        </button>
+
       </div>
 
-      <div>
-        <span class="text-[10px] text-amber-400 uppercase font-black tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
-          Order Processed Successfully
-        </span>
-        <h3 id="success-ref" class="text-xl font-black text-white mt-3">Order Ref: CCGK-000000</h3>
-        <p id="success-cust-name" class="text-xs text-slate-400 mt-1">
-          Thank you. Your food order has been sent to our kitchen.
-        </p>
-      </div>
+      <form id="reservationForm" class="p-6 space-y-4">
 
-      <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-left space-y-2 text-xs">
-        <div class="flex justify-between text-slate-400">
-          <span>Delivery Zone:</span>
-          <span id="success-zone" class="text-white font-medium">GRA ENUGU</span>
-        </div>
-        <div class="flex justify-between text-slate-400">
-          <span>Payment Mode:</span>
-          <span id="success-method" class="text-emerald-400 font-medium">Pay on Delivery</span>
-        </div>
-        <div class="flex justify-between text-slate-400">
-          <span>Total Paid/Due:</span>
-          <span id="success-total" class="text-amber-400 font-bold">₦0</span>
-        </div>
-      </div>
+        <input
+          id="reservationName"
+          type="text"
+          placeholder="Your Name"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
 
-      <button
-        onclick="toggleOrderSuccessModal(false)"
-        class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl text-xs uppercase"
-      >
-        Close Window
-      </button>
+        <input
+          id="reservationPhone"
+          type="tel"
+          placeholder="Phone Number"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <input
+          id="reservationDate"
+          type="date"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <input
+          id="reservationTime"
+          type="time"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <input
+          id="reservationGuests"
+          type="number"
+          min="1"
+          placeholder="Number of Guests"
+          required
+          class="w-full border border-gray-300 rounded-xl px-4 py-3"
+        />
+
+        <button
+          type="submit"
+          class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-black"
+        >
+          Reserve Table
+        </button>
+
+      </form>
+
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
+
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
-    const RESTAURANT_WHATSAPP = "2348068091772";
 
-    const CATEGORIES = ["All Menu", "Igbo Delicacies", "Soups & Swallows", "Grills & Suya", "Drinks & Palm Wine"];
+    const WHATSAPP_NUMBER = "2348068091772";
 
-    const MENU_ITEMS = [
+    const menuItems = [
       {
-        id: "m1",
-        name: "Special Abacha (African Salad)",
+        id: 1,
+        name: "Special Abacha",
+        description: "African Salad",
         category: "Igbo Delicacies",
         price: 3500,
-        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
-        description: "Prepared with cassava shreds, garden egg, Ugba, dried fish, and ponmo in warm palm oil sauce."
+        image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m2",
-        name: "Spicy Nkwobi (Cow Foot)",
+        id: 2,
+        name: "Spicy Nkwobi",
+        description: "Cow Foot",
         category: "Igbo Delicacies",
         price: 4500,
-        image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        description: "Tender cow foot cooked in traditional potash and palm oil gravy, garnished with sliced Utazi leaves."
+        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m3",
-        name: "Full Isi Ewu (Goat Head)",
+        id: 3,
+        name: "Full Isi Ewu",
+        description: "Goat Head",
         category: "Igbo Delicacies",
         price: 9000,
-        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-        description: "Whole spiced goat head prepared in rich native herbs and onion rings. Perfect for 2-3 guests."
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m4",
-        name: "Ofe Akwu (Palm Nut Stew) & Rice",
+        id: 4,
+        name: "Ofe Akwu & Rice",
+        description: "Palm Nut Stew",
         category: "Soups & Swallows",
         price: 4500,
-        image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=80",
-        description: "Rich concentrated palm fruit soup cooked with scent leaves, dry fish, and beef, served with steaming white rice."
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m5",
-        name: "Special Egusi Soup with Choice Swallow",
+        id: 5,
+        name: "Special Egusi Soup",
+        description: "With Choice Swallow",
         category: "Soups & Swallows",
         price: 5000,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        description: "Lumpy Egusi with stockfish, goat meat, and bitterleaf. Choice of Pounded Yam, Garri, or Wheat."
+        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m6",
+        id: 6,
         name: "Ofe Owerri Executive Pot",
+        description: "Traditional Nigerian Soup",
         category: "Soups & Swallows",
         price: 6500,
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80",
-        description: "King of Igbo soups with snail, smoked fish, stockfish head, and assorted beef."
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m7",
-        name: "peppered  Chicken Suya",
+        id: 7,
+        name: "Peppered Chicken Suya",
+        description: "Spicy Grilled Chicken",
         category: "Grills & Suya",
         price: 3800,
-        image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80",
-        description: "Flame-grilled half chicken spiced with authentic Yaji peanut pepper mix, onions, and cabbage."
+        image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m8",
+        id: 8,
         name: "Special Beef Suya Platter",
+        description: "Classic Nigerian Suya",
         category: "Grills & Suya",
         price: 3500,
-        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-        description: "Tender boneless beef strips grilled to perfection with spicy pepper powder and tomatoes."
+        image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80"
       },
+
       {
-        id: "m9",
-        name: "Chilled Nsukka Native Palm Wine (1L)",
+        id: 9,
+        name: "Chilled Nsukka Native Palm Wine",
+        description: "1 Litre",
         category: "Drinks & Palm Wine",
         price: 2000,
-        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80",
-        description: "100% natural, unadulterated fresh palm wine tapped daily from Nsukka hills."
+        image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
-    const DELIVERY_ZONES = [
-      { id: "ind-layout", name: "Opara Avenue / GRA (close to lounge) ", fee: 800 },
-      { id: "gra", name: "Independence Layout / Ogui Road / Bissala Rd", fee: 1000 },
-      { id: "new-haven", name: "New Haven / Abakaliki Road", fee: 1200 },
-      { id: "trans-ekulu", name: "Trans-Ekulu / Phase 6", fee: 1500 },
-      { id: "abakpa", name: "Abakpa Nike / Liberty Estate", fee: 1500 },
-      { id: "achara", name: "Achara Layout / Agbani Road", fee: 1500 },
-      { id: "coal-camp", name: "Coal Camp / Obiagu", fee: 1200 }
-    ];
 
-    let INITIAL_REVIEWS = [
+    let cart = [];
+
+
+    function formatNaira(amount) {
+      return "₦" + amount.toLocaleString("en-NG");
+    }
+
+
+    function renderMenu() {
+
+      const container = document.getElementById("menuContainer");
+
+      container.innerHTML = menuItems.map(item => `
+
+        <article class="menu-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
+
+          <img
+            src="${item.image}"
+            alt="${item.name} - ${item.description} at Mama Ada Grand Kitchen & Lounge"
+            class="w-full h-56 object-cover"
+            loading="lazy"
+          />
+
+          <div class="p-6">
+
+            <p class="text-orange-600 text-xs font-bold uppercase tracking-wider">
+              ${item.category}
+            </p>
+
+            <h3 class="text-2xl font-black mt-2">
+              ${item.name}
+            </h3>
+
+            <p class="text-gray-600 mt-2">
+              ${item.description}
+            </p>
+
+            <div class="flex items-center justify-between mt-6">
+
+              <span class="text-xl font-black">
+                ${formatNaira(item.price)}
+              </span>
+
+              <button
+                onclick="addToCart(${item.id})"
+                class="bg-gray-950 hover:bg-orange-600 text-white px-5 py-3 rounded-xl font-bold transition"
+              >
+                Add to Cart
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      `).join("");
+
+    }
+
+
+    function addToCart(id) {
+
+      const item = menuItems.find(item => item.id === id);
+
+      if (!item) return;
+
+      const existing = cart.find(item => item.id === id);
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          ...item,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+
+      alert(item.name + " added to your cart.");
+    }
+
+
+    function removeFromCart(id) {
+
+      cart = cart.filter(item => item.id !== id);
+
+      updateCart();
+    }
+
+
+    function changeQuantity(id, amount) {
+
+      const item = cart.find(item => item.id === id);
+
+      if (!item) return;
+
+      item.quantity += amount;
+
+      if (item.quantity <= 0) {
+        removeFromCart(id);
+        return;
+      }
+
+      updateCart();
+    }
+
+
+    function updateCart() {
+
+      const count = cart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+
+      document.getElementById("cartCount").textContent = count;
+
+      const cartItems = document.getElementById("cartItems");
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+          <div class="text-center py-12">
+
+            <i data-lucide="shopping-cart" class="w-12 h-12 mx-auto text-gray-400"></i>
+
+            <p class="text-gray-500 mt-4">
+              Your cart is empty.
+            </p>
+
+          </div>
+        `;
+
+        document.getElementById("cartTotal").textContent = "₦0";
+
+        lucide.createIcons();
+
+        return;
+      }
+
+
+      cartItems.innerHTML = cart.map(item => `
+
+        <div class="flex gap-4 py-4 border-b">
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            class="w-20 h-20 rounded-xl object-cover"
+          />
+
+          <div class="flex-1">
+
+            <h3 class="font-black">
+              ${item.name}
+            </h3>
+
+            <p class="text-orange-600 font-bold">
+              ${formatNaira(item.price)}
+            </p>
+
+            <div class="flex items-center gap-3 mt-2">
+
+              <button
+                onclick="changeQuantity(${item.id}, -1)"
+                class="w-8 h-8 rounded-lg bg-gray-100"
+              >
+                -
+              </button>
+
+              <span class="font-bold">
+                ${item.quantity}
+              </span>
+
+              <button
+                onclick="changeQuantity(${item.id}, 1)"
+                class="w-8 h-8 rounded-lg bg-gray-100"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+          <button
+            onclick="removeFromCart(${item.id})"
+            class="text-red-500"
+          >
+            <i data-lucide="trash-2"></i>
+          </button>
+
+        </div>
+
+      `).join("");
+
+
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      document.getElementById("cartTotal").textContent =
+        formatNaira(total);
+
+      lucide.createIcons();
+    }
+
+
+    function openCart() {
+
+      const modal = document.getElementById("cartModal");
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+
+      updateCart();
+    }
+
+
+    function closeCart() {
+
+      const modal = document.getElementById("cartModal");
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+
+    function openCheckout() {
+
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      closeCart();
+
+      const modal = document.getElementById("checkoutModal");
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+
+    function closeCheckout() {
+
+      const modal = document.getElementById("checkoutModal");
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+
+    function openReservation() {
+
+      const modal = document.getElementById("reservationModal");
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+
+    function closeReservation() {
+
+      const modal = document.getElementById("reservationModal");
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+
+    /* ================= CHECKOUT ================= */
+
+    document.getElementById("checkoutForm").addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        if (cart.length === 0) {
+          alert("Your cart is empty.");
+          return;
+        }
+
+        const name =
+          document.getElementById("customerName").value.trim();
+
+        const phone =
+          document.getElementById("customerPhone").value.trim();
+
+        const address =
+          document.getElementById("customerAddress").value.trim();
+
+        const payment =
+          document.getElementById("paymentMethod").value;
+
+
+        let orderMessage =
+          "Hello Mama Ada Grand Kitchen & Lounge!%0A%0A" +
+          "I would like to place an order.%0A%0A" +
+          "Customer: " + encodeURIComponent(name) + "%0A" +
+          "Phone: " + encodeURIComponent(phone) + "%0A" +
+          "Delivery Address: " + encodeURIComponent(address) + "%0A" +
+          "Payment: " + encodeURIComponent(payment) + "%0A%0A" +
+          "ORDER:%0A";
+
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+          const subtotal =
+            item.price * item.quantity;
+
+          total += subtotal;
+
+          orderMessage +=
+            encodeURIComponent(
+              item.quantity +
+              " x " +
+              item.name +
+              " - " +
+              formatNaira(subtotal)
+            ) +
+            "%0A";
+
+        });
+
+
+        orderMessage +=
+          "%0ATotal: " +
+          encodeURIComponent(formatNaira(total));
+
+
+        /*
+          WhatsApp ordering works here.
+          Paystack is not actually connected yet.
+        */
+
+        if (payment === "Paystack") {
+
+          alert(
+            "Paystack payment is not connected yet. " +
+            "Your order will be sent to WhatsApp instead."
+          );
+
+        }
+
+
+        window.open(
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          orderMessage,
+          "_blank"
+        );
+
+
+        cart = [];
+
+        updateCart();
+
+        closeCheckout();
+
+        this.reset();
+
+      }
+    );
+
+
+    /* ================= REVIEWS ================= */
+
+    const defaultReviews = [
+
       {
-        id: "r1",
         name: "Dr. Chukwuma Ezedinma",
         location: "Independence Layout",
         rating: 5,
-        comment: "The Nkwobi here is unbeatable in Enugu! Tastes exactly like home, and their delivery to our office was fast.",
-        date: "2 days ago"
+        text:
+          "The Nkwobi here is unbeatable in Enugu!"
       },
+
       {
-        id: "r2",
         name: "Mrs. Nneji Ifeoma",
         location: "GRA, Enugu",
         rating: 5,
-        comment: "Brought my family here for Sunday dinner. The Ofe Owerri and pounded yam were rich and extremely fresh.",
-        date: "1 week ago"
+        text:
+          "The food is delicious and the atmosphere is very welcoming."
       },
+
       {
-        id: "r3",
         name: "Emeka Anyanwu",
         location: "Trans-Ekulu",
         rating: 5,
-        comment: "Fresh Nsukka palm wine in chilled calabashes! Top atmosphere for relaxation after work.",
-        date: "2 weeks ago"
+        text:
+          "Great place for authentic Nigerian food and a relaxed evening."
       }
+
     ];
 
-    // App State
-    let cart = [];
-    let selectedCategory = "All Menu";
-    let searchQuery = "";
-    let selectedPaymentMethod = "pod"; // 'pod' or 'online'
 
-    // Format currency
-    function formatNGN(amount) {
-      return "₦" + amount.toLocaleString('en-NG');
-    }
+    let reviews = [...defaultReviews];
 
-    // Init Page UI
-    window.addEventListener('DOMContentLoaded', () => {
-      renderCategories();
-      renderMenu();
-      renderReviews();
-      populateDeliveryZones();
-      updateCartUI();
-      
-      // Set default reservation date to today
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('res-date').value = today;
 
-      // Refresh icons
-      if (window.lucide) lucide.createIcons();
-    });
+    function renderReviews() {
 
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
+      const container =
+        document.getElementById("reviewsContainer");
 
-    function renderCategories() {
-      const container = document.getElementById('category-tabs');
-      container.innerHTML = CATEGORIES.map(cat => `
-        <button
-          onclick="setCategory('${cat}')"
-          class="px-5 py-2.5 rounded-full text-xs font-bold whitespace-nowrap transition-all ${
-            selectedCategory === cat
-              ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20 scale-105'
-              : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
-          }"
-        >
-          ${cat}
-        </button>
-      `).join('');
-    }
 
-    function setCategory(cat) {
-      selectedCategory = cat;
-      renderCategories();
-      renderMenu();
-    }
+      container.innerHTML = reviews.map(review => `
 
-    function handleSearch(val) {
-      searchQuery = val.toLowerCase().trim();
-      const clearBtn = document.getElementById('clear-search');
-      if (searchQuery.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
-      renderMenu();
-    }
+        <article class="bg-white text-gray-950 rounded-3xl p-7 shadow-xl">
 
-    function clearSearch() {
-      document.getElementById('search-input').value = "";
-      handleSearch("");
-    }
-
-    function renderMenu() {
-      const container = document.getElementById('menu-grid');
-      
-      const filtered = MENU_ITEMS.filter(item => {
-        const matchesCat = selectedCategory === "All Menu" || item.category === selectedCategory;
-        const matchesSearch = item.name.toLowerCase().includes(searchQuery) || item.description.toLowerCase().includes(searchQuery);
-        return matchesCat && matchesSearch;
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = `
-          <div class="col-span-full text-center py-12 text-slate-500 space-y-3">
-            <i data-lucide="utensils-crossed" class="w-12 h-12 mx-auto text-slate-600"></i>
-            <p>No food items found matching your search.</p>
+          <div class="text-orange-500 text-xl mb-4">
+            ${"★".repeat(review.rating)}
+            ${"☆".repeat(5 - review.rating)}
           </div>
-        `;
-      } else {
-        container.innerHTML = filtered.map(item => `
-          <div class="bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-amber-500/40 transition-all group flex flex-col justify-between shadow-xl">
-            <div>
-              <div class="relative h-48 overflow-hidden">
-                <img 
-                  src="${item.image}" 
-                  alt="${item.name}" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-700 text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-                  ${item.category}
-                </span>
-              </div>
-              <div class="p-5 space-y-2">
-                <h3 class="font-black text-white text-base group-hover:text-amber-400 transition-colors">${item.name}</h3>
-                <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">${item.description}</p>
-              </div>
-            </div>
-            <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/50 mt-4">
-              <span class="text-amber-400 font-black text-lg">${formatNGN(item.price)}</span>
-              <button 
-                onclick="addToCart('${item.id}')"
-                class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-full flex items-center space-x-1.5 transition-all shadow-md active:scale-95"
-              >
-                <i data-lucide="plus" class="w-4 h-4"></i>
-                <span>Add to Order</span>
-              </button>
-            </div>
+
+          <p class="text-gray-700 leading-relaxed">
+            "${review.text}"
+          </p>
+
+          <div class="mt-6">
+
+            <h3 class="font-black">
+              ${review.name}
+            </h3>
+
+            <p class="text-gray-500 text-sm">
+              ${review.location}
+            </p>
+
           </div>
-        `).join('');
-      }
 
-      if (window.lucide) lucide.createIcons();
+        </article>
+
+      `).join("");
+
     }
 
-    // Cart Handlers
-    function addToCart(id) {
-      const existing = cart.find(i => i.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        const item = MENU_ITEMS.find(i => i.id === id);
-        cart.push({ ...item, qty: 1 });
-      }
-      updateCartUI();
-      toggleCart(true);
-    }
 
-    function changeQty(id, delta) {
-      const item = cart.find(i => i.id === id);
-      if (item) {
-        item.qty += delta;
-        if (item.qty <= 0) {
-          cart = cart.filter(i => i.id !== id);
-        }
-      }
-      updateCartUI();
-    }
+    document.getElementById("reviewForm").addEventListener(
+      "submit",
+      function(event) {
 
-    function updateCartUI() {
-      const count = cart.reduce((sum, item) => sum + item.qty, 0);
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        event.preventDefault();
 
-      const badge = document.getElementById('cart-badge');
-      if (count > 0) {
-        badge.innerText = count;
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
 
-      document.getElementById('cart-subtotal').innerText = formatNGN(subtotal);
+        const name =
+          document.getElementById("reviewName").value.trim();
 
-      const itemsList = document.getElementById('cart-items-list');
-      const cartFooter = document.getElementById('cart-footer');
+        const rating =
+          Number(
+            document.getElementById("reviewRating").value
+          );
 
-      if (cart.length === 0) {
-        itemsList.innerHTML = `
-          <div class="text-center py-16 text-slate-500 space-y-3">
-            <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto text-slate-700"></i>
-            <p class="text-xs">Your shopping cart is currently empty.</p>
-          </div>
-        `;
-        cartFooter.classList.add('hidden');
-      } else {
-        cartFooter.classList.remove('hidden');
-        itemsList.innerHTML = cart.map(item => `
-          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
-            <div class="space-y-1">
-              <h4 class="font-bold text-white text-xs">${item.name}</h4>
-              <p class="text-amber-400 font-bold text-xs">${formatNGN(item.price)}</p>
-            </div>
-            <div class="flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-lg p-1">
-              <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-white font-bold text-sm">-</button>
-              <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
-              <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-white font-bold text-sm">+</button>
-            </div>
-          </div>
-        `).join('');
-      }
+        const text =
+          document.getElementById("reviewText").value.trim();
 
-      if (window.lucide) lucide.createIcons();
-    }
 
-    function toggleCart(show) {
-      const bg = document.getElementById('cart-drawer-bg');
-      const drawer = document.getElementById('cart-drawer');
-      if (show) {
-        bg.classList.remove('hidden');
-        drawer.classList.remove('translate-x-full');
-      } else {
-        bg.classList.add('hidden');
-        drawer.classList.add('translate-x-full');
-      }
-    }
+        reviews.unshift({
 
-    // Checkout Logic
-    function populateDeliveryZones() {
-      const select = document.getElementById('checkout-zone');
-      select.innerHTML = DELIVERY_ZONES.map(z => `
-        <option value="${z.id}">${z.name} (+${formatNGN(z.fee)})</option>
-      `).join('');
-    }
+          name: name,
 
-    function openCheckout() {
-      toggleCart(false);
-      updateCheckoutTotal();
-      document.getElementById('checkout-modal').classList.remove('hidden');
-    }
+          location: "Guest",
 
-    function toggleCheckout(show) {
-      const modal = document.getElementById('checkout-modal');
-      if (show) modal.classList.remove('hidden');
-      else modal.classList.add('hidden');
-    }
+          rating: rating,
 
-    function updateCheckoutTotal() {
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      const zoneId = document.getElementById('checkout-zone').value;
-      const zone = DELIVERY_ZONES.find(z => z.id === zoneId) || DELIVERY_ZONES[0];
-      const grandTotal = subtotal + zone.fee;
+          text: text
 
-      document.getElementById('checkout-subtotal').innerText = formatNGN(subtotal);
-      document.getElementById('checkout-zone-name').innerText = `Delivery Fee (${zone.name.split(' ')[0]})`;
-      document.getElementById('checkout-delivery-fee').innerText = formatNGN(zone.fee);
-      document.getElementById('checkout-grand-total').innerText = formatNGN(grandTotal);
-    }
-
-    function setPaymentMethod(method) {
-      selectedPaymentMethod = method;
-      const btnPod = document.getElementById('btn-pod');
-      const btnOnline = document.getElementById('btn-online');
-      const submitBtn = document.getElementById('checkout-submit-btn');
-
-      if (method === 'pod') {
-        btnPod.className = "p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-emerald-950/60 border-emerald-500 text-white";
-        btnOnline.className = "p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-slate-950 border-slate-800 text-slate-400";
-        submitBtn.innerHTML = `<i data-lucide="message-square" class="w-4 h-4"></i><span>Place Order via WhatsApp</span>`;
-      } else {
-        btnOnline.className = "p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-emerald-950/60 border-emerald-500 text-white";
-        btnPod.className = "p-4 rounded-xl border text-left flex items-start space-x-3 transition-all bg-slate-950 border-slate-800 text-slate-400";
-        submitBtn.innerHTML = `<i data-lucide="credit-card" class="w-4 h-4"></i><span>Pay Online (Paystack)</span>`;
-      }
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function handleCheckoutSubmit(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('cust-name').value.trim();
-      const phone = document.getElementById('cust-phone').value.trim();
-      const address = document.getElementById('cust-address').value.trim();
-      const notes = document.getElementById('cust-notes').value.trim();
-      const zoneId = document.getElementById('checkout-zone').value;
-      const zone = DELIVERY_ZONES.find(z => z.id === zoneId);
-
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      const grandTotal = subtotal + zone.fee;
-      const ref = "CCGK-" + Math.floor(100000 + Math.random() * 900000);
-
-      if (selectedPaymentMethod === 'pod') {
-        // Construct WhatsApp Order String
-        let msg = `*NEW FOOD ORDER - MAMA ADA GRAND KITCHEN*\n`;
-        msg += `*Order Ref:* ${ref}\n\n`;
-        msg += `*Customer:* ${name}\n`;
-        msg += `*Phone:* ${phone}\n`;
-        msg += `*Delivery Zone:* ${zone.name}\n`;
-        msg += `*Address:* ${address}\n`;
-        if (notes) msg += `*Notes:* ${notes}\n`;
-        msg += `\n*Order Items:*\n`;
-
-        cart.forEach((item, index) => {
-          msg += `${index + 1}. ${item.name} x${item.qty} - ${formatNGN(item.price * item.qty)}\n`;
         });
 
-        msg += `\n*Subtotal:* ${formatNGN(subtotal)}`;
-        msg += `\n*Delivery Fee:* ${formatNGN(zone.fee)}`;
-        msg += `\n*GRAND TOTAL:* ${formatNGN(grandTotal)}`;
-        msg += `\n*Payment Mode:* Pay on Delivery (Cash/POS)`;
 
-        const waUrl = `https://wa.me/${RESTAURANT_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, '_blank');
+        renderReviews();
 
-        toggleCheckout(false);
-        showOrderSuccess(ref, name, zone.name, "Pay On Delivery", grandTotal);
-        cart = [];
-        updateCartUI();
-      } else {
-        // Paystack Simulation
-        alert(`Redirecting to Paystack Secure Gateway for ${formatNGN(grandTotal)}...`);
-        toggleCheckout(false);
-        showOrderSuccess(ref, name, zone.name, "Paystack Online (Paid)", grandTotal);
-        cart = [];
-        updateCartUI();
+        this.reset();
+
+        alert(
+          "Thank you for sharing your experience!"
+        );
+
       }
-    }
+    );
 
-    function showOrderSuccess(ref, name, zone, method, total) {
-      document.getElementById('success-ref').innerText = `Order Ref: ${ref}`;
-      document.getElementById('success-cust-name').innerText = `Thank you ${name}, your order has been registered.`;
-      document.getElementById('success-zone').innerText = zone;
-      document.getElementById('success-method').innerText = method;
-      document.getElementById('success-total').innerText = formatNGN(total);
 
-      document.getElementById('order-success-modal').classList.remove('hidden');
-    }
+    /* ================= RESERVATION ================= */
 
-    function toggleOrderSuccessModal(show) {
-      const modal = document.getElementById('order-success-modal');
-      if (show) modal.classList.remove('hidden');
-      else modal.classList.add('hidden');
-    }
+    document.getElementById("reservationForm").addEventListener(
+      "submit",
+      function(event) {
 
-    // Reservation Handler
-    function toggleReservationModal(show) {
-      const modal = document.getElementById('reservation-modal');
-      const confirmedView = document.getElementById('reservation-confirmed-view');
-      const form = document.getElementById('reservation-form');
+        event.preventDefault();
 
-      if (show) {
-        confirmedView.classList.add('hidden');
-        form.classList.remove('hidden');
-        modal.classList.remove('hidden');
-      } else {
-        modal.classList.add('hidden');
+
+        const name =
+          document.getElementById("reservationName").value.trim();
+
+        const phone =
+          document.getElementById("reservationPhone").value.trim();
+
+        const date =
+          document.getElementById("reservationDate").value;
+
+        const time =
+          document.getElementById("reservationTime").value;
+
+        const guests =
+          document.getElementById("reservationGuests").value;
+
+
+        const message =
+          "Hello Mama Ada Grand Kitchen & Lounge!%0A%0A" +
+          "I would like to make a reservation.%0A%0A" +
+          "Name: " + encodeURIComponent(name) + "%0A" +
+          "Phone: " + encodeURIComponent(phone) + "%0A" +
+          "Date: " + encodeURIComponent(date) + "%0A" +
+          "Time: " + encodeURIComponent(time) + "%0A" +
+          "Guests: " + encodeURIComponent(guests);
+
+
+        window.open(
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          message,
+          "_blank"
+        );
+
+
+        closeReservation();
+
+        this.reset();
+
       }
-    }
+    );
 
-    function handleReservationSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('res-name').value;
-      const phone = document.getElementById('res-phone').value;
-      const date = document.getElementById('res-date').value;
-      const time = document.getElementById('res-time').value;
-      const guests = document.getElementById('res-guests').value;
-      const area = document.getElementById('res-area').value;
 
-      document.getElementById('reservation-confirmed-text').innerText = 
-        `Dear ${name}, your table for ${guests} guest(s) at ${area} on ${date} at ${time} is reserved.`;
+    /* ================= INITIALIZE ================= */
 
-      document.getElementById('reservation-form').classList.add('hidden');
-      document.getElementById('reservation-confirmed-view').classList.remove('hidden');
-    }
+    renderMenu();
 
-    // Review Handler
-    function renderReviews() {
-      const container = document.getElementById('reviews-grid');
-      container.innerHTML = INITIAL_REVIEWS.map(rev => `
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <div class="flex items-center space-x-1 text-amber-400">
-              ${'★'.repeat(rev.rating)}
-            </div>
-            <p class="text-xs text-slate-300 italic leading-relaxed">"${rev.comment}"</p>
-          </div>
-          <div class="border-t border-slate-800 pt-3 flex justify-between items-end text-[11px]">
-            <div>
-              <strong class="block text-white">${rev.name}</strong>
-              <span class="text-slate-500">${rev.location}</span>
-            </div>
-            <span class="text-slate-600">${rev.date}</span>
-          </div>
-        </div>
-      `).join('');
-    }
+    renderReviews();
 
-    function handleReviewSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('rev-name').value.trim();
-      const location = document.getElementById('rev-location').value.trim() || "Enugu Resident";
-      const rating = parseInt(document.getElementById('rev-rating').value);
-      const comment = document.getElementById('rev-comment').value.trim();
+    updateCart();
 
-      INITIAL_REVIEWS.unshift({
-        id: "r" + Date.now(),
-        name,
-        location,
-        rating,
-        comment,
-        date: "Just now"
-      });
+    lucide.createIcons();
 
-      renderReviews();
 
-      // Clear form
-      document.getElementById('rev-name').value = "";
-      document.getElementById('rev-location').value = "";
-      document.getElementById('rev-comment').value = "";
+    /* ================= CLOSE MODALS ================= */
 
-      const msg = document.getElementById('review-success');
-      msg.classList.remove('hidden');
-      setTimeout(() => msg.classList.add('hidden'), 4000);
-    }
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeCart();
+          closeCheckout();
+          closeReservation();
+
+        }
+
+      }
+    );
+
   </script>
+
 </body>
 </html>
