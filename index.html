@@ -1113,27 +1113,33 @@
       closeCheckout();
     });
 
-    document.getElementById("reservationForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+  document.getElementById("reservationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      const name = document.getElementById("reservationName").value.trim();
-      const phone = document.getElementById("reservationPhone").value.trim();
-      const date = document.getElementById("reservationDate").value;
-      const time = document.getElementById("reservationTime").value;
-      const guests = document.getElementById("reservationGuests").value;
+  const name = document.getElementById("reservationName").value.trim();
+  const phone = document.getElementById("reservationPhone").value.trim();
+  const date = document.getElementById("reservationDate").value;
+  const time = document.getElementById("reservationTime").value;
+  const guests = document.getElementById("reservationGuests").value;
 
-      const message =
-        "MAMA ADA GRAND KITCHEN & LOUNGE - TABLE RESERVATION%0A%0A" +
-        "Hello,%0A" +
-        "I would like to reserve a table.%0A%0A" +
-        "Name: " + encodeURIComponent(name) + "%0A" +
-        "Phone: " + encodeURIComponent(phone) + "%0A" +
-        "Date: " + encodeURIComponent(date) + "%0A" +
-        "Time: " + encodeURIComponent(time) + "%0A" +
-        "Guests: " + encodeURIComponent(guests);
+  const emailSubject = encodeURIComponent("New Table Reservation - Mama Ada Grand Kitchen & Lounge");
+  
+  const emailBody = encodeURIComponent(
+    "MAMA ADA GRAND KITCHEN & LOUNGE - TABLE RESERVATION\n\n" +
+    "Hello Mama Ada Team,\n\n" +
+    "A new table reservation request has been submitted:\n\n" +
+    "• Customer Name: " + name + "\n" +
+    "• Phone Number: " + phone + "\n" +
+    "• Date: " + date + "\n" +
+    "• Time: " + time + "\n" +
+    "• Number of Guests: " + guests + "\n\n" +
+    "Please confirm this reservation with the customer."
+  );
 
-      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
-      closeReservation();
+  // Opens the user's email client addressed to your email
+  window.location.href = "mailto:nnejiifeanyichukwu46@gmail.com?subject=" + emailSubject + "&body=" + emailBody;
+
+  closeReservation();
     });
 
     document.getElementById("reviewForm").addEventListener("submit", function(event) {
