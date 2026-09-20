@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-NG" class="scroll-smooth">
 <head>
@@ -767,7 +766,6 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-
     const WHATSAPP_NUMBER = "2348068091772";
 
     const menuItems = [
@@ -779,7 +777,6 @@
         price: 3500,
         image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 2,
         name: "Spicy Nkwobi",
@@ -788,7 +785,6 @@
         price: 4500,
         image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 3,
         name: "Full Isi Ewu",
@@ -797,7 +793,6 @@
         price: 9000,
         image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 4,
         name: "Ofe Akwu & Rice",
@@ -806,7 +801,6 @@
         price: 4500,
         image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 5,
         name: "Special Egusi Soup",
@@ -815,7 +809,6 @@
         price: 5000,
         image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 6,
         name: "Ofe Owerri Executive Pot",
@@ -824,7 +817,6 @@
         price: 6500,
         image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 7,
         name: "Peppered Chicken Suya",
@@ -833,7 +825,6 @@
         price: 3800,
         image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 8,
         name: "Special Beef Suya Platter",
@@ -842,7 +833,6 @@
         price: 3500,
         image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80"
       },
-
       {
         id: 9,
         name: "Chilled Nsukka Native Palm Wine",
@@ -853,612 +843,319 @@
       }
     ];
 
+    const initialReviews = [
+      {
+        name: "Chidimma O.",
+        rating: 5,
+        text: "Best Abacha and Nkwobi in Enugu! Tastes like home-cooked authentic food."
+      },
+      {
+        name: "Emeka K.",
+        rating: 5,
+        text: "The palm wine was extremely fresh, and the Isi Ewu was seasoned to perfection."
+      },
+      {
+        name: "Blessing N.",
+        rating: 5,
+        text: "Fast delivery to GRA. The Egusi soup was rich and very delicious."
+      }
+    ];
 
     let cart = [];
-
+    let reviews = [...initialReviews];
 
     function formatNaira(amount) {
       return "₦" + amount.toLocaleString("en-NG");
     }
 
-
     function renderMenu() {
-
       const container = document.getElementById("menuContainer");
+      if (!container) return;
 
       container.innerHTML = menuItems.map(item => `
-
         <article class="menu-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
-
           <img
             src="${item.image}"
             alt="${item.name} - ${item.description} at Mama Ada Grand Kitchen & Lounge"
             class="w-full h-56 object-cover"
             loading="lazy"
           />
-
           <div class="p-6">
-
             <p class="text-orange-600 text-xs font-bold uppercase tracking-wider">
               ${item.category}
             </p>
-
             <h3 class="text-2xl font-black mt-2">
               ${item.name}
             </h3>
-
             <p class="text-gray-600 mt-2">
               ${item.description}
             </p>
-
             <div class="flex items-center justify-between mt-6">
-
               <span class="text-xl font-black">
                 ${formatNaira(item.price)}
               </span>
-
               <button
                 onclick="addToCart(${item.id})"
                 class="bg-gray-950 hover:bg-orange-600 text-white px-5 py-3 rounded-xl font-bold transition"
               >
                 Add to Cart
               </button>
-
             </div>
-
           </div>
-
         </article>
-
       `).join("");
-
     }
 
+    function renderReviews() {
+      const container = document.getElementById("reviewsContainer");
+      if (!container) return;
+
+      container.innerHTML = reviews.map(rev => `
+        <div class="bg-gray-900 border border-white/10 p-6 rounded-3xl">
+          <div class="text-orange-400 text-lg font-bold mb-2">
+            ${"★".repeat(rev.rating)}${"☆".repeat(5 - rev.rating)}
+          </div>
+          <p class="text-gray-300 italic mb-4">"${rev.text}"</p>
+          <p class="font-black text-white text-sm">— ${rev.name}</p>
+        </div>
+      `).join("");
+    }
 
     function addToCart(id) {
-
       const item = menuItems.find(item => item.id === id);
-
       if (!item) return;
 
       const existing = cart.find(item => item.id === id);
-
       if (existing) {
         existing.quantity++;
       } else {
-        cart.push({
-          ...item,
-          quantity: 1
-        });
+        cart.push({ ...item, quantity: 1 });
       }
 
       updateCart();
-
       alert(item.name + " added to your cart.");
     }
 
-
     function removeFromCart(id) {
-
       cart = cart.filter(item => item.id !== id);
-
       updateCart();
     }
 
-
     function changeQuantity(id, amount) {
-
       const item = cart.find(item => item.id === id);
-
       if (!item) return;
 
       item.quantity += amount;
-
       if (item.quantity <= 0) {
         removeFromCart(id);
         return;
       }
-
       updateCart();
     }
 
-
     function updateCart() {
-
-      const count = cart.reduce(
-        (total, item) => total + item.quantity,
-        0
-      );
-
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
       document.getElementById("cartCount").textContent = count;
 
       const cartItems = document.getElementById("cartItems");
 
       if (cart.length === 0) {
-
         cartItems.innerHTML = `
           <div class="text-center py-12">
-
             <i data-lucide="shopping-cart" class="w-12 h-12 mx-auto text-gray-400"></i>
-
-            <p class="text-gray-500 mt-4">
-              Your cart is empty.
-            </p>
-
+            <p class="text-gray-500 mt-4">Your cart is empty.</p>
           </div>
         `;
-
         document.getElementById("cartTotal").textContent = "₦0";
-
         lucide.createIcons();
-
         return;
       }
 
-
       cartItems.innerHTML = cart.map(item => `
-
         <div class="flex gap-4 py-4 border-b">
-
           <img
             src="${item.image}"
             alt="${item.name}"
             class="w-20 h-20 rounded-xl object-cover"
           />
-
           <div class="flex-1">
-
-            <h3 class="font-black">
-              ${item.name}
-            </h3>
-
-            <p class="text-orange-600 font-bold">
-              ${formatNaira(item.price)}
-            </p>
-
+            <h3 class="font-black">${item.name}</h3>
+            <p class="text-orange-600 font-bold">${formatNaira(item.price)}</p>
             <div class="flex items-center gap-3 mt-2">
-
               <button
                 onclick="changeQuantity(${item.id}, -1)"
-                class="w-8 h-8 rounded-lg bg-gray-100"
+                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center font-bold"
               >
                 -
               </button>
-
-              <span class="font-bold">
-                ${item.quantity}
-              </span>
-
+              <span class="font-bold">${item.quantity}</span>
               <button
                 onclick="changeQuantity(${item.id}, 1)"
-                class="w-8 h-8 rounded-lg bg-gray-100"
+                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center font-bold"
               >
                 +
               </button>
-
             </div>
-
           </div>
-
-          <button
-            onclick="removeFromCart(${item.id})"
-            class="text-red-500"
-          >
+          <button onclick="removeFromCart(${item.id})" class="text-red-500">
             <i data-lucide="trash-2"></i>
           </button>
-
         </div>
-
       `).join("");
 
-
-      const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
-
-      document.getElementById("cartTotal").textContent =
-        formatNaira(total);
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.getElementById("cartTotal").textContent = formatNaira(total);
 
       lucide.createIcons();
     }
 
-
     function openCart() {
-
       const modal = document.getElementById("cartModal");
-
       modal.classList.remove("hidden");
       modal.classList.add("flex");
-
       updateCart();
     }
 
-
     function closeCart() {
-
       const modal = document.getElementById("cartModal");
-
       modal.classList.add("hidden");
       modal.classList.remove("flex");
     }
 
-
     function openCheckout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+      closeCart();
+      const modal = document.getElementById("checkoutModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeCheckout() {
+      const modal = document.getElementById("checkoutModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function openReservation() {
+      const modal = document.getElementById("reservationModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeReservation() {
+      const modal = document.getElementById("reservationModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    /* ================= FORM HANDLERS ================= */
+
+    document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
       if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
       }
 
-      closeCart();
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("customerPhone").value.trim();
+      const address = document.getElementById("customerAddress").value.trim();
+      const payment = document.getElementById("paymentMethod").value;
 
-      const modal = document.getElementById("checkoutModal");
+      let orderMessage =
+        "MAMA ADA GRAND KITCHEN & LOUNGE - NEW ORDER%0A%0A" +
+        "Hello Mama Ada Grand Kitchen & Lounge,%0A%0A" +
+        "I would like to place an order with the following details:%0A%0A" +
+        "CUSTOMER INFORMATION%0A" +
+        "━━━━━━━━━━━━━━━━━━━━%0A" +
+        "Customer Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone Number: " + encodeURIComponent(phone) + "%0A" +
+        "Delivery Address: " + encodeURIComponent(address) + "%0A" +
+        "Payment Method: " + encodeURIComponent(payment) + "%0A%0A" +
+        "ORDERED MENU%0A" +
+        "━━━━━━━━━━━━━━━━━━━━%0A";
 
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-    }
+      let total = 0;
 
-
-    function closeCheckout() {
-
-      const modal = document.getElementById("checkoutModal");
-
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }
-
-
-    function openReservation() {
-
-      const modal = document.getElementById("reservationModal");
-
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-    }
-
-
-    function closeReservation() {
-
-      const modal = document.getElementById("reservationModal");
-
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }
-
-
-    /* ================= CHECKOUT ================= */
-
-    document.getElementById("checkoutForm").addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-        if (cart.length === 0) {
-          alert("Your cart is empty.");
-          return;
-        }
-
-        const name =
-          document.getElementById("customerName").value.trim();
-
-        const phone =
-          document.getElementById("customerPhone").value.trim();
-
-        const address =
-          document.getElementById("customerAddress").value.trim();
-
-        const payment =
-          document.getElementById("paymentMethod").value;
-
-
-        let orderMessage =
-          "MAMA ADA GRAND KITCHEN & LOUNGE - NEW ORDER%0A%0A" +
-          "Hello Mama Ada Grand Kitchen & Lounge,%0A%0A" +
-          "I would like to place an order with the following details:%0A%0A" +
-          "CUSTOMER INFORMATION%0A" +
-          "━━━━━━━━━━━━━━━━━━━━%0A" +
-          "Customer Name: " + encodeURIComponent(name) + "%0A" +
-          "Phone Number: " + encodeURIComponent(phone) + "%0A" +
-          "Delivery Address: " + encodeURIComponent(address) + "%0A" +
-          "Payment Method: " + encodeURIComponent(payment) + "%0A%0A" +
-          "ORDERED MENU%0A" +
-          "━━━━━━━━━━━━━━━━━━━━%0A";
-
-
-        let total = 0;
-
-
-        cart.forEach(item => {
-
-          const subtotal =
-            item.price * item.quantity;
-
-          total += subtotal;
-
-          orderMessage +=
-            "Menu Item: " + encodeURIComponent(item.name) + "%0A" +
-            "Category: " + encodeURIComponent(item.category) + "%0A" +
-            "Unit Price: " + encodeURIComponent(formatNaira(item.price)) + "%0A" +
-            "Quantity: " + encodeURIComponent(item.quantity) + "%0A" +
-            "Subtotal: " + encodeURIComponent(formatNaira(subtotal)) + "%0A" +
-            "--------------------%0A";
-
-        });
-
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
 
         orderMessage +=
-          "%0AORDER SUMMARY%0A" +
-          "━━━━━━━━━━━━━━━━━━━━%0A" +
-          "Total Items: " +
-          encodeURIComponent(
-            cart.reduce((sum, item) => sum + item.quantity, 0)
-          ) +
-          "%0A" +
-          "TOTAL AMOUNT: " +
-          encodeURIComponent(formatNaira(total)) +
-          "%0A%0A" +
-          "Please confirm my order and let me know the estimated delivery time.%0A%0A" +
-          "Thank you for choosing Mama Ada Grand Kitchen & Lounge.";
+          "Menu Item: " + encodeURIComponent(item.name) + "%0A" +
+          "Category: " + encodeURIComponent(item.category) + "%0A" +
+          "Unit Price: " + encodeURIComponent(formatNaira(item.price)) + "%0A" +
+          "Quantity: " + encodeURIComponent(item.quantity) + "%0A" +
+          "Subtotal: " + encodeURIComponent(formatNaira(subtotal)) + "%0A" +
+          "--------------------%0A";
+      });
 
+      orderMessage +=
+        "%0AORDER SUMMARY%0A" +
+        "━━━━━━━━━━━━━━━━━━━━%0A" +
+        "Total Items: " + encodeURIComponent(cart.reduce((sum, item) => sum + item.quantity, 0)) + "%0A" +
+        "TOTAL AMOUNT: " + encodeURIComponent(formatNaira(total)) + "%0A%0A" +
+        "Please confirm my order and let me know the estimated delivery time.%0A%0A" +
+        "Thank you for choosing Mama Ada Grand Kitchen & Lounge.";
 
-        /*
-          WhatsApp ordering works here.
-          Paystack is not actually connected yet.
-        */
-
-        if (payment === "Paystack") {
-
-          alert(
-            "Paystack payment is not connected yet. " +
-            "Your order will be sent to WhatsApp instead."
-          );
-
-        }
-
-
-        window.open(
-          "https://wa.me/" +
-          WHATSAPP_NUMBER +
-          "?text=" +
-          orderMessage,
-          "_blank"
-        );
-
-
-        cart = [];
-
-        updateCart();
-
-        closeCheckout();
-
-        this.reset();
-
-      }
-    );
-
-
-    /* ================= REVIEWS ================= */
-
-    const defaultReviews = [
-
-      {
-        name: "Dr. Chukwuma Ezedinma",
-        location: "Independence Layout",
-        rating: 5,
-        text:
-          "The Nkwobi here is unbeatable in Enugu!"
-      },
-
-      {
-        name: "Mrs. Nneji Ifeoma",
-        location: "GRA, Enugu",
-        rating: 5,
-        text:
-          "The food is delicious and the atmosphere is very welcoming."
-      },
-
-      {
-        name: "Emeka Anyanwu",
-        location: "Trans-Ekulu",
-        rating: 5,
-        text:
-          "Great place for authentic Nigerian food and a relaxed evening."
+      if (payment === "Paystack") {
+        alert("Paystack payment is not connected yet. Your order will be sent to WhatsApp instead.");
       }
 
-    ];
-
-
-    let reviews = [...defaultReviews];
-
-
-    function renderReviews() {
-
-      const container =
-        document.getElementById("reviewsContainer");
-
-
-      container.innerHTML = reviews.map(review => `
-
-        <article class="bg-white text-gray-950 rounded-3xl p-7 shadow-xl">
-
-          <div class="text-orange-500 text-xl mb-4">
-            ${"★".repeat(review.rating)}
-            ${"☆".repeat(5 - review.rating)}
-          </div>
-
-          <p class="text-gray-700 leading-relaxed">
-            "${review.text}"
-          </p>
-
-          <div class="mt-6">
-
-            <h3 class="font-black">
-              ${review.name}
-            </h3>
-
-            <p class="text-gray-500 text-sm">
-              ${review.location}
-            </p>
-
-          </div>
-
-        </article>
-
-      `).join("");
-
-    }
-
-
-    document.getElementById("reviewForm").addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-
-        const name =
-          document.getElementById("reviewName").value.trim();
-
-        const rating =
-          Number(
-            document.getElementById("reviewRating").value
-          );
-
-        const text =
-          document.getElementById("reviewText").value.trim();
-
-
-        reviews.unshift({
-
-          name: name,
-
-          location: "Guest",
-
-          rating: rating,
-
-          text: text
-
-        });
-
-
-        renderReviews();
-
-        this.reset();
-
-        alert(
-          "Thank you for sharing your experience!"
-        );
-
-      }
-    );
-
-
-    /* ================= RESERVATION ================= */
-
-    document.getElementById("reservationForm").addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-        const name =
-          document.getElementById("reservationName").value.trim();
-
-        const phone =
-          document.getElementById("reservationPhone").value.trim();
-
-        const date =
-          document.getElementById("reservationDate").value;
-
-        const time =
-          document.getElementById("reservationTime").value;
-
-        const guests =
-          document.getElementById("reservationGuests").value;
-
-
-        const reservationDetails =
-          "MAMA ADA GRAND KITCHEN & LOUNGE - TABLE RESERVATION\n\n" +
-          "Hello Mama Ada Grand Kitchen & Lounge,\n\n" +
-          "I would like to make a table reservation with the following details:\n\n" +
-          "Customer Name: " + name + "\n" +
-          "Phone Number: " + phone + "\n" +
-          "Reservation Date: " + date + "\n" +
-          "Reservation Time: " + time + "\n" +
-          "Number of Guests: " + guests + "\n\n" +
-          "Please confirm whether the requested date and time are available.\n\n" +
-          "Thank you.\n" +
-          "Mama Ada Grand Kitchen & Lounge Customer";
-
-
-        /* Send reservation to WhatsApp */
-        const whatsappMessage =
-          encodeURIComponent(reservationDetails);
-
-        window.open(
-          "https://wa.me/" +
-          WHATSAPP_NUMBER +
-          "?text=" +
-          whatsappMessage,
-          "_blank"
-        );
-
-
-        /* Prepare reservation email */
-        const emailSubject = encodeURIComponent(
-          "Table Reservation Request - Mama Ada Grand Kitchen & Lounge"
-        );
-
-        const emailBody =
-          encodeURIComponent(reservationDetails);
-
-        window.location.href =
-          "mailto:nnejiifeanyichukwu46@gmail.com" +
-          "?subject=" +
-          emailSubject +
-          "&body=" +
-          emailBody;
-
-
-        closeReservation();
-
-        this.reset();
-
-      }
-    );
-
-
-    /* ================= INITIALIZE ================= */
-
-    renderMenu();
-
-    renderReviews();
-
-    updateCart();
-
-    lucide.createIcons();
-
-
-    /* ================= CLOSE MODALS ================= */
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Escape") {
-
-          closeCart();
-          closeCheckout();
-          closeReservation();
-
-        }
-
-      }
-    );
-
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + orderMessage, "_blank");
+      
+      cart = [];
+      updateCart();
+      closeCheckout();
+    });
+
+    document.getElementById("reservationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("reservationName").value.trim();
+      const phone = document.getElementById("reservationPhone").value.trim();
+      const date = document.getElementById("reservationDate").value;
+      const time = document.getElementById("reservationTime").value;
+      const guests = document.getElementById("reservationGuests").value;
+
+      const message =
+        "MAMA ADA GRAND KITCHEN & LOUNGE - TABLE RESERVATION%0A%0A" +
+        "Hello,%0A" +
+        "I would like to reserve a table.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Date: " + encodeURIComponent(date) + "%0A" +
+        "Time: " + encodeURIComponent(time) + "%0A" +
+        "Guests: " + encodeURIComponent(guests);
+
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
+      closeReservation();
+    });
+
+    document.getElementById("reviewForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("reviewName").value.trim();
+      const rating = parseInt(document.getElementById("reviewRating").value);
+      const text = document.getElementById("reviewText").value.trim();
+
+      reviews.unshift({ name, rating, text });
+      renderReviews();
+
+      this.reset();
+      alert("Thank you for your review!");
+    });
+
+    // Initialize Page
+    window.addEventListener("DOMContentLoaded", () => {
+      renderMenu();
+      renderReviews();
+      lucide.createIcons();
+    });
   </script>
-
 </body>
 </html>
